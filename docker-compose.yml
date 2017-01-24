@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+    morpionappli:
+      image: morpion
+      container_name: morpion
+      hostname: morpion
+      expose:
+        - "9100"
+      ports:
+        - "80:80"
+        - "2222:22" # ssh
+    #  entrypoint:
+      volumes:
+        - /home/projects/morpion:/home/morpion
+        - /home/projects:/home/projects
+      tty: true
+      dns:
+        - 8.8.8.8
+        - 8.8.4.4
+      environment:
+        PHP_XDEBUG_ENABLED: 1 # Set 1 to enable.
+        XDEBUG_CONFIG: remote_host=192.168.254.254
