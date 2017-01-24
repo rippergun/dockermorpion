@@ -16,13 +16,6 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 #php fpm
 COPY php-fpm5.6.conf /etc/php/5.6/fpm/pool.d/www.conf
 
-#COPY php-conf.ini /etc/php/5.6/
-#COPY ports.conf /etc/apache2/conf-enabled/
-
-#RUN ln -fs /etc/php/5.6/php-conf.ini /etc/php/5.6/fpm/conf.d/ \
-#&& ln -fs /etc/php/5.6/php-conf.ini /etc/php/5.6/apache2/conf.d/ \
-#&& ln -fs /etc/php/5.6/php-conf.ini /etc/php/5.6/cli/conf.d/
-
 RUN a2enmod proxy rewrite proxy_fcgi setenvif headers && a2dismod php5.6 mpm_prefork && a2enmod mpm_worker
 RUN chown -R www-data:www-data /usr/lib/cgi-bin
 RUN touch /usr/lib/cgi-bin/php5.6-fcgi
