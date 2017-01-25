@@ -14,4 +14,5 @@ sudo docker-composer up
 
 ## add morpion.lan to hosts
 sudo su
+
 echo "127.0.0.1 www.morpion.lan" >> /etc/hosts
