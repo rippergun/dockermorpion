@@ -18,5 +18,26 @@ sudo su
 echo "127.0.0.1 www.morpion.lan" >> /etc/hosts
 
 ## in docker 
-cd /home/morpion 
-php artisan migrate
+sur le host, lancer le container
+
+```
+#!shell
+cd /home/projects/dockermorpion/
+sudo docker-composer up -d
+
+```
+se connecter au container
+sudo docker exec -ti morpion bash
+
+```
+#!shell
+
+```
+
+Dans le container
+
+```
+#!shell
+cd /home/morpion && php artisan migrate
+
+```
