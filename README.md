@@ -40,9 +40,6 @@ se connecter au container
 sudo docker exec -ti morpion bash
 
 ```
-#!shell
-
-```
 
 Dans le container
 
